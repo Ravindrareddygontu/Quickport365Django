@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+
+<link href="{% static 'css/one.css' %}" rel="stylesheet">
+<div class="gon">
+    <center><h3> Welcome {{request.user}}</h3></center>
+
+</div><br><br>
+<div class="heloo">
+    <center><br>
+        <form action="hom" method="get">
+            Choose your Delivery Range:<br><br>
+
+            <input name='range' type="submit" value="Domestic" class="btn btn-primary">
+            <input name='range' type="submit" value="International" class="btn btn-primary">
+        </form>
+    </center>
+
+    <center><br>
+        {% if range %}
+
+        <form action="" method="post" class="domestic">
+            {% csrf_token %}
+            <div class="domestic">{{form.as_p}}</div>
+            <input type="submit" value="Submit" class="btn btn-success">
+        </form>
+</div>
+{% endif %}
+</div>
+
+</center>
+
+
+{% endblock %}

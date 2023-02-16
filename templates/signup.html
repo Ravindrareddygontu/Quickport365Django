@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+ <link href="{% static 'css/two.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="heloo">
+<form action="" method="post" novalidate>
+ {% csrf_token %}
+  {% if form.non_field_errors %}
+   {% for error in form.non_field_errors %}
+    <p class="er">{{error}}</p>
+   {% endfor %}
+  {% endif %}
+ {% for fm in form %}
+  {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br><br>
+ {% endfor %}
+ <input type="submit" value="Submit">
+</form>
+{% if messages %}
+ {% for message in messages %}
+ <small {% if message.tags %} class="{{message.tags}}" {% endif %}> <h1>{{message}}</h1> </small>
+ {% endfor %}
+ {% endif %}
+ Already have a account
+ <a href="log_in">Login</a>
+</div>
+</body>
+</html>
+
+{% endblock %}

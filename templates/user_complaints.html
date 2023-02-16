@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    table,td,tr,th{
+    border:1px solid black;
+    }
+</style>
+
+</head>
+<body>
+
+ <div class="col-sm-4 offset-1">
+
+
+   <table class="table table-striped.thead-dark">
+       <h4 class="text-center alert alert-danger"> complaint history </h4>
+     <thead>
+       <tr>
+
+         <th scope="col">Booking Id</th>
+            <th scope="col"> Issue </th>
+         <th scope="col">User name</th>
+       </tr>
+     </thead>
+     <tbody>
+      {% for st in comp %}
+       <tr>
+         <td><a href="complaint_order">#{{st.booking_id}}</a></td>
+         <td>{{st.issue}}</td>
+         <td>{{st.user}}</td>
+       </tr>
+      {% endfor %}
+     </tbody>
+   </table>
+ </div>
+
+</div>
+
+
+</body>
+</html>
+{% endblock %}

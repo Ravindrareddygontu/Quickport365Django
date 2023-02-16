@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <style>
+    </style>
+</head>
+<body>
+{% for i in form %}
+
+<center><div class="form-group">
+    <h2>Item = {{i.item_name}}</h2><hr>
+    <h2>Status: {{i.status}}</h2><hr>
+    <h2>Destination:  {{i.destination}}</h2><hr>
+     <h2>Item_weight:  {{i.item_weight}} </h2><hr>
+    <h2> Services:  {{i.services}}</h2><hr>
+     <h2>Price: {{i.price}}</h2><hr>
+    <br>
+    <a href="/booking"> <input name='payment' type="submit" value="Back" class="btn btn-primary"> </a> <bR>
+    <hr>
+</div></center>
+
+{% endfor %}
+</body>
+</head>
+{% endblock %}

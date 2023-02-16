@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content%}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if total %}
+<h3>Total orders you picked = {{total}}</h3><hr>
+<center>
+{% for i in orders %}
+    <h3>Order id = {{i.id}}</h3>
+Customer Name - {{i.order.user}} <br>
+Origin - {{i.order.origin}} <br>
+destination - {{i.order.destination}} <br>
+item_weight - {{i.order.item_weight}} <br>
+item_name - {{i.order.item_name}} <br>
+services - {{i.order.services}} <br>
+date - {{i.order.date}} <br>
+price - {{i.order.price}} <br>
+status - {{i.order.status}}<br><br>
+    <a href="update_status/{{i.id}}">Update Status</a><hr>
+{% endfor %}
+</center>
+{% else %}
+<h1>You didn't Picked any Orders</h1>
+<a href="driver_dashboard">Go to orders</a>
+{% endif %}
+ {% if orders.has_previous %}
+    <a href="?page={{orders.previous_page_number}}">Previous</a>
+   {% endif %}
+
+    <span>Page {{ orders.number }} of {{ orders.paginator.num_pages }}</span>
+
+   {% if orders.has_next %}
+    <a href="?page={{orders.next_page_number}}">Next</a>
+   {% endif %}
+
+</body>
+</html>
+{% endblock %}

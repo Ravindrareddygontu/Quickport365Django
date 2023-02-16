@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Orders <span>{{total}}</span></h2><hr>
+<form>
+    <input type="submit" name="status" value="Total">
+    <input type="submit" name="status" value="Pending">
+     <input type="submit" name="status" value="Picked">
+     <input type="submit" name="status" value="In_Process">
+     <input type="submit" name="status" value="Delivered">
+</form>
+{% for record in page_obj %}
+<h3>Booking ID : {{record.id}}</h3>
+Date of booking: {{record.date}}<br>
+Customer : {{record.user}}<br>
+<!--Delivery Status: {{stat}}-->
+{{record.status}}
+<h4>Driver Details </h4>
+{{record.driver.name}}
+{{record.driver_phone}}
+<hr>
+{% endfor %}
+
+<div>
+  <span>
+   {% if page_obj.has_previous %}
+    <a href="?page={{page_obj.previous_page_number}}">Previous</a>
+   {% endif %}
+
+    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+   {% if page_obj.has_next %}
+    <a href="?page={{page_obj.next_page_number}}">Next</a>
+   {% endif %}
+  </span>
+ </div>
+
+</body>
+</html>
+{% endblock %}

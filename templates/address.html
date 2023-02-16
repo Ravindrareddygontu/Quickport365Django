@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static  %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <link  rel="stylesheet" href="{% static 'one.css' %}">
+    <style>
+        body {
+          background: #555;
+        }
+        .content {
+          max-width: 800px;
+          margin: auto;
+          background:  LightGray;
+          padding: 1px;
+          text-align: center;
+          text-justify: auto;
+        }
+        h4{
+            color: green;
+        }
+        </style>
+</head>
+<body>
+    <div class="content">
+          {% for message in messages %}
+        {{message}}
+        {% endfor %}
+        <form method="get">
+         <h4>Pickup address</h4>
+        <label>Pincode:</label>
+        <input type="text" name="pickup_pincode" value="{{ppincode}}">
+        <input type="submit">
+           <br>
+    </form>
+        <form method="post">
+            {% csrf_token %}
+        <label>Local Address</label>
+        <input type="text" name="pickup_area"><br><br>
+         <label>City</label>
+        <input type="text" name="pickup_city" value={{pcity}}><br><br>
+        <label>District:</label>
+        <input type="text" name="pickup_district" value={{pdistrict}}><br><br>
+        <label>State:</label>
+        <input type="text" name="pickup_state" value={{pstate}}><br><br>
+
+    </form>
+        <form method="get">
+        <h4>Delivery Address</h4>
+        <label>Pincode:</label>
+        <input type="text" name="delivery_pincode" value="{{dpincode}}">
+        <input type="submit">
+            <br>
+            </form>
+        <form method="post">
+            {% csrf_token %}
+        <label>Street/Village Address</label>
+        <input type="text" name="delivery_area"><br><br>
+         <label>City</label>
+        <input type="text" name="delivery_city" value={{dcity}}><br><br>
+        <label>District:</label>
+        <input type="text" name="delivery_district" value={{ddistrict}}><br><br>
+        <label>State:</label>
+        <input type="text" name="delivery_state" value={{dstate}}><br><br>
+    </form>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-success">
+        </form>
+</div>
+
+</body>
+</html>
+{% endblock %}

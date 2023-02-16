@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+     <link href="{% static 'css/four.css' %}" rel="stylesheet">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body><center>
+    <div class="heloo "><br>
+        <p>&#9989;</p>
+<h1 style="color:green"> payment successfull</h1>
+        <div class="col-25">
+    <div class="container">
+      origin  :{{order.origin}}
+      <p >destination : <span class="price"> {{order.destination}}</span></p>
+        <p >Receiver name : <span class="price"> {{order.receiver_name}}</span></p>
+        <p >Receiver Phone : <span class="price"> {{order.receiver_phone}}</span></p>
+   <p >service: <span class="price"> {{order.services}}</span></p>
+           <p >Date: <span class="price">{{order.date}}</span></p>
+           <p >price  : <span class="price"> {{order.price}}</span></p>
+        <p >Pickup_address  : <span class="price"> {{order.pickup_address}}</span></p>
+        <p >Delivery_address  : <span class="price"> {{order.delivery_address}}</span></p>
+        </p><hr>
+           <a href="hom"><button type="button" class="btn btn-success">Go to Home</button></h6></a></a>
+
+    </div>
+  </div>
+</body></center></div>
+</html>
+
+{% endblock %}

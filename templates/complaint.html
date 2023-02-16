@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<style>
+
+
+</style>
+<link href="{% static 'css/five.css' %}" rel="stylesheet">
+<body>
+
+<center><h1>Raise a complaint</h1>
+    <div class="container" >
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-sm-9 offset-8">
+ <div class="sravani">
+
+  <form action="" method="POST">
+   {% csrf_token %}
+   {{form.as_p}}
+   <input type="submit" class="btn btn-success" value="Add">
+  </form>
+ </div>
+                </div>
+            </div></div></div></center>
+</div>
+
+<!-- <div class="col-sm-4 offset-1">-->
+<!--{% if user.is_authenticated %}-->
+
+<!--  {% if stu %}-->
+
+<!--   <table class="table table-striped.thead-dark">-->
+<!--       <h4 class="text-center alert alert-danger"> complaint history </h4>-->
+<!--     <thead>-->
+<!--       <tr>-->
+<!--         <th scope="col">ID</th>-->
+<!--         <th scope="col">Booking Id</th>-->
+<!--            <th scope="col"> Issue </th>-->
+<!--         <th scope="col">User name</th>-->
+
+
+
+<!--       </tr>-->
+<!--     </thead>-->
+<!--     <tbody>-->
+<!--      {% for st in stu %}-->
+
+<!--       <tr>-->
+<!--         <th scope="row">{{st.id}}</th>-->
+<!--         <td>{{st.booking_id}}</td>-->
+<!--         <td>{{st.issue}}</td>-->
+<!--         <td>{{st.user}}</td>-->
+
+<!--       </tr>-->
+<!--      {% endfor %}-->
+<!--     </tbody>-->
+<!--   </table>-->
+
+<!--  {% else %}-->
+<!--   <h4 class="text-center alert alert-warning">No Records</h4>-->
+
+<!-- </div>-->
+
+<!--</div>-->
+<!-- {% endif %}-->
+{% endif %}
+</body>
+
+{% endblock content %}

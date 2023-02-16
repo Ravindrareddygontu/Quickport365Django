@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static  %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'css/three.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="to">
+    <div class="tol">
+<h1>Total Price</h1>
+<h1>{{price}} rs</h1>
+
+
+<h2>Delivery address</h2>
+<h4>{{delivery}}</h4>
+<h1>Payment Options</h1>
+<form method="get" action="success">
+    <input name='payment' type="submit" value="Phonepay" class="btn btn-primary">
+    <input name='payment' type="submit" value="Gpay" class="btn btn-primary">
+    <input name='payment' type="submit" value="Credit Card" class="btn btn-primary">
+    <input name='payment' type="submit" value="Debit Card" class="btn btn-primary">
+    <input name='payment' type="submit" value="Razor Pay" class="btn btn-primary">
+
+    <script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_6lrPUDLV0dRFf9"
+    data-amount="50000"
+    data-currency="INR"
+    data-order_id="{{product.id}}"
+
+    data-name="Professional Cipher"
+    data-description="parcel delivery payment"
+    data-image="https://example.com/your_logo.jpg"
+    data-prefill.name="Gaurav Kumar"
+    data-prefill.email="gaurav.kumar@example.com"
+    data-theme.color="#F37254">
+
+</script>
+
+</form>
+     </div>
+</body>
+</html>
+</div>
+
+{% endblock %}

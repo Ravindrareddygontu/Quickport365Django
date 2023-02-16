@@ -1,0 +1,39 @@
+
+.heloo{
+     background-image: url("https://thumbs.dreamstime.com/z/parcels-box-trolley-delivery-service-office-stone-background-top-view-space-text-parcels-box-trolley-delivery-112990237.jpg");
+
+
+    font-size:20px;
+     background-repeat: no-repeat;
+      background-size: 100%;
+       height: 1000px;
+
+}
+
+.gon{
+    background-color:#00ffff;
+      padding: 10px;
+}
+
+.hel{
+   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVcRxNPzrAE7n9f-clqVdvknLLQHb130HzbQ&usqp=CAU");
+   background-repeat: no-repeat;
+   background-size: 100%;
+   margin-left:10%;
+   margin-right:10%;
+
+}
+
+.parc{
+    background-image:url("https://images.squarespace-cdn.com/content/v1/5c2bec19cef3729843c85a6d/1563418804806-9NVM4FAN3D2J4S3Y7XVD/Boxes+Pic+2.jpeg?format=1500w");
+    background-size: 100%;
+    height: 1000px;
+    font-size:20px;
+
+}
+
+.top{
+   margin-left:10%;
+
+}
+

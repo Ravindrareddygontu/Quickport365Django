@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block head_content %}
+{%  load static %}
+<link rel="stylesheet" href="{% static 'css/two.css' %}" xmlns="http://www.w3.org/1999/html">
+  {% endblock %}
+{% block content %}
+<div class="jumbotron"><br><br><br><br>
+  <center><h2 style="color:blue">Payment Details</h2></center>
+<form action="" method="get">
+ <center> <b>Choose your Delivery service:</b>
+<input name='service' type="submit" value="Standard" class="btn btn-primary">
+<input name='service' type="submit" value="Premium" class="btn btn-primary">
+</form><br><br><br>
+
+
+<br>
+{% if price %}
+<b>Total price of delivery ---- {{price}}<br><br>
+    Shipment duration ---- {{days}}-{{days}}/2 days<br><br></b>
+<a href="address"><button type="button" class="btn btn-success">Proceed</button></h6></a></a>
+<br><hr></center>
+</div>
+<br>
+<br>
+</div>
+{% endif %}
+{% endblock %}

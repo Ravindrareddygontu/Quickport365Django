@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Drivers Details</h1>
+<a href="add_driver">Add Driver</a><hr>
+{% for driver in drivers %}
+{{driver.name}}<br><br>
+{{driver.phone}}<br><br>
+{{driver.address}}<br><br>
+{{driver.id_type}}<br><br>
+{{driver.govt_id}}<br><br><hr>
+{% endfor %}
+{% if drivers.has_previous %}
+    <a href="?page={{drivers.previous_page_number}}">Previous</a>
+   {% endif %}
+
+    <span>Page {{ drivers.number }} of {{ drivers.paginator.num_pages }}</span>
+
+   {% if drivers.has_next %}
+    <a href="?page={{drivers.next_page_number}}">Next</a>
+   {% endif %}
+
+</body>
+</html>
+{% endblock %}

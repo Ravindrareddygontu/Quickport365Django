@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+ {% load static %}
+ <link href="{% static 'css/one.css' %}" rel="stylesheet">
+</head>
+<body>
+<h3>Please login here to continue</h3><BR>
+<div class="down">
+ <form action="" method="POST">
+  {% csrf_token %}
+  {% if form.non_field_errors %}
+   {% for error in form.non_field_errors %}
+    <p class="er">{{error}}</p>
+   {% endfor %}
+  {% endif %}
+  {% for fm in form %}
+   {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br><br>
+  {% endfor %}
+  <input type="submit" value="Login">
+ </form>
+  You don't have an account..? <a href="{% url 'signup' %}">Signup</a>
+</div>
+</body>
+</html>
+{% endblock %}

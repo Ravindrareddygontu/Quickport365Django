@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<center><h1>Your Orders {{total}}</h1></center>
+<hr>
+
+<center>
+    {% for i in order_page %}
+    <h2>Booking id = {{i.id}}</h2>
+    <h4>Date = {{i.date}}</h4>
+    <h4>Item Name = {{i.item_name}}</h4>
+    <h4>Status = {{i.status}}</h4><br>
+    <form action="histor" method="get">
+        <input hidden name='payment' type="text" value="{{i.date}}">
+        <input type="submit" value="view details" class="btn btn-primary"><br>
+        <hr>
+    </form>
+    {% endfor %}
+</center>
+{% if order_page.has_previous %}
+<a href="?page={{order_page.previous_page_number}}">Previous</a>
+{% endif %}
+
+<span>Page {{ order_page.number }} of {{ order_page.paginator.num_pages }}</span>
+
+{% if order_page.has_next %}
+<a href="?page={{order_page.next_page_number}}">Next</a>
+{% endif %}
+
+
+{% endblock %}

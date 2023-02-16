@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <title>food tracker</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    {% block head_content %}
+    {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">QuickPort365</a>
+        </div>
+        <ul class="nav navbar-nav">
+            {% if not user.is_superuser and not user.is_staff %}
+            <li class="active"><a href="hom">Home</a></li>
+            <li class="active"><a href="booking">Bookings</a></li>
+            <li class="active"><a href="complaint">Contact</a></li>
+            {% endif %}
+            {% if user.is_superuser %}
+
+             <li class="active"><a href="admin_dashboard">Orders Dashboard</a></li>
+             <li class="active"><a href="drivers">Drivers</a></li>
+              <li class="active"><a href="usercomplaints">Complaints</a></li>
+            {% endif %}
+            {% if user.is_staff and not user.is_superuser %}
+             <li class="active"><a href="driver_dashboard">Orders</a></li>
+            <li class="active"><a href="orderspicked">Picked Orders</a></li>
+            {% endif %}
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right">
+            {% if not user.is_authenticated %}
+            <li><a href="/sign"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+{% endif %}
+            <li>
+                {% if user.is_authenticated %}
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Profile
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/profiles">{{request.user}}</a><br>
+
+                    <a class="dropdown-item" href="#">My account</a><br>
+                    <a class="dropdown-item" href="#">Terms & conditions</a><br>
+                    <a class="dropdown-item" href="#">About us</a><br>
+                    <a class="dropdown-item" href="#">Contact us</a><br>
+                    <a class="dropdown-item" href="#">Privacy policy</a><br>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a><br>
+                    {% else %}
+                    <a class="nav-link" href='log_in'>Login</a>
+                    {% endif %}
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+</body>
+</html>
+{% block content %}
+{% endblock %}

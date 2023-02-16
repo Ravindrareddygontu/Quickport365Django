@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post" novalidate>
+ {% csrf_token %}
+  {% if form.non_field_errors %}
+   {% for error in form.non_field_errors %}
+    <p class="er">{{error}}</p>
+   {% endfor %}
+  {% endif %}
+ {% for fm in fm %}
+  {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br><br>
+ {% endfor %}
+ <input type="submit" value="Submit">
+</form>
+{% if messages %}
+ {% for message in messages %}
+  <small {% if message.tags %} class="{{message.tags}}" {% endif %}> {{message}} </small>
+ {% endfor %}
+ {% endif %}
+ <a href="{% url 'login' %}">Login</a>
+ <h4>Signup as a user</h4>
+ <a href="sign">User Signup</a>
+</body>
+</html>
+{% endblock %}

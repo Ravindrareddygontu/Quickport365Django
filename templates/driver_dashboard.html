@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<center>
+
+<h1>Total orders to pickup {{total}}</h1><hr>
+<body>
+{% for i in all %}
+<h3>Order Id = {{i.id}}</h3>
+Customer Name - {{i.user}} <br>
+Origin - {{i.origin}} <br>
+destination - {{i.destination}} <br>
+Destination_country - {{i.Destination_country}} <br>
+item_weight - {{i.item_weight}} <br>
+item_name - {{i.item_name}} <br>
+services - {{i.services}} <br>
+date - {{i.date}} <br>
+price - {{i.price}} <br>
+status - {{i.status}} <br>
+<a href="edit/{{i.id}}">Click here to pickup</a> <hr>
+
+{% endfor %}</center>
+
+  {% if all.has_previous %}
+    <a href="?page={{all.previous_page_number}}">Previous</a>
+   {% endif %}
+
+    <span>Page {{ all.number }} of {{ all.paginator.num_pages }}</span>
+
+   {% if all.has_next %}
+    <a href="?page={{all.next_page_number}}">Next</a>
+   {% endif %}
+
+
+</body>
+</html>
+{% endblock %}

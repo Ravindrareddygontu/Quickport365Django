@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block head_content %}
+{%  load static %}
+<link  href="{% static 'css/one.css' %}"  rel="stylesheet">
+  {% endblock %}
+{% block content %}
+
+<div class="parc">
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="top">
+    {{parcel_form.as_p}}
+    <input type="submit" value="Done">
+    </div>
+</form>
+</div>
+{% endblock %}
+
